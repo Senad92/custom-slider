@@ -39,7 +39,7 @@ git clone https://github.com/Senad92/accessory-slider.git
 - Navigate to the project directory:
 
 ```python
-cd accessory-slider
+cd custom-slider
 ```
 
 - Install the project dependencies using npm:

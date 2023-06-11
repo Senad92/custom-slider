@@ -1,0 +1,20 @@
+{
+  "name": "accessory-slider",
+  "version": "1.0.0",
+  "description": "Tractive Task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp"
+  },
+  "author": "Senad Lemes",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.62.1"
+  }
+}

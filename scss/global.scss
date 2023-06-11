@@ -1,0 +1,242 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import "variables"; 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    &:before,
+    &:after {
+      box-sizing: border-box;
+    }
+}
+
+body {
+    font-family: $primary-font;
+    color: $color-black;
+    background: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    font-size: $base-font-size;
+}
+
+a, 
+button {
+	touch-action: manipulation;
+    cursor: pointer;
+}
+
+main {
+	position: relative;
+	max-width: 1100px;
+	width: 100%;
+	
+	::-webkit-scrollbar {
+		display: none;
+	}
+
+	.accessory-title {
+		padding: 1.5rem 1rem;
+		font-size: 2rem;
+		font-weight: 400;
+		text-align: center;
+
+		@media screen and (min-width: $breakpoint-medium) {
+			font-size: 3rem;
+		}
+	}
+
+	.accessory-component {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: 100%;
+		gap: 16px;
+		border-radius: 8px;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		scrollbar-width: none;
+		margin-top: 2.5rem;
+
+		@media screen and (min-width: $breakpoint-small) {
+			grid-auto-columns: calc((100% / 2) - 12px);
+		}
+
+		@media screen and (min-width: $breakpoint-medium) {
+			grid-auto-columns: calc((100% / 3) - 12px);
+		}
+
+		@media screen and (min-width: $breakpoint-large) {
+			grid-auto-columns: calc((100% / 4) - 12px);
+		}
+
+		&.dragging {
+			scroll-snap-type: none;
+			scroll-behavior: auto;
+
+			.card {
+				cursor: grab;
+				user-select: none;
+			}
+		}
+
+		.card {
+			list-style-type: none;
+			background: $color-grey;
+			border-radius: 8px;
+			height: 342px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			scroll-snap-align: start;
+			cursor: pointer;
+
+			&__box {    
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+				text-align: center;
+				align-items: center;
+				width: 100%;
+
+				&--img {
+					width: 140px;
+					height: 140px;
+					object-fit: contain;
+				}
+
+				&--title {
+					font-size: 1.5rem;
+				}
+
+				&--price {
+					font-size: 1rem;
+					color: $color-price;
+				}
+
+				&--button {
+					background: $color-button-blue;
+					color: $color-white;
+					font-weight: bold;
+					border: none;
+					border-radius: 9999px;
+					transition: background 300ms ease-out,border 300ms ease-out;    
+					padding: 0.75rem 2.5rem;
+					width: 80%;
+
+					&:hover:not(:disabled) {
+						background: $color-button-blue-hover;
+					}
+				}
+			}
+		}
+	}
+
+
+	.slider-arrows {
+		position: absolute;
+		top: 60%;
+		width: 100%;    
+		opacity: 0;
+		transition: opacity 0.3s ease;
+		display: flex;
+		align-items: center;
+
+		&__prev,
+		&__next {
+			position: absolute;
+			height: 34px;
+			width: 34px;
+			border-radius: 100%;
+			cursor: pointer;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+			background-color: $color-button-blue-hover;
+		}
+		
+		&__prev {
+			background-image: url('../../img/icons/arrow-left.svg');
+			left: -15px;
+		}
+		
+		&__next {
+			background-image: url('../../img/icons/arrow-right.svg');
+			right: -15px;
+		}
+
+		@media screen and (min-width: $breakpoint-small) {
+			opacity: 0;
+		}
+
+		@media screen and (max-width: $breakpoint-large) { 
+			display: none;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+	
+	&:hover .slider-arrows {
+		opacity: 1;
+	}
+
+	.scrollbar {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	
+		.range-percentage {
+			--slider-size: 60px; 
+			-webkit-appearance: none;
+			appearance: none;
+			width: 75%;
+			height: 12px;
+			border-radius: 4px;
+			background-color: $color-grey-light;
+			margin-top: 10px;
+			outline: none;
+
+			@media screen and (min-width: $breakpoint-medium) {
+				width: 25%;
+				height: 8px;
+			}
+		
+			&::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				appearance: none;
+				width: var(--slider-size);
+				height: 12px;
+				border-radius: 4px;
+				background-color: $color-black;
+				cursor: pointer;
+				
+				@media screen and (min-width: $breakpoint-medium) {
+					height: 8px;
+				}
+			}
+			
+			&::-moz-range-thumb {
+				width: var(--slider-size);
+				height: 12px;
+				border-radius: 4px;
+				background-color: $color-black;
+				cursor: pointer;
+				
+				@media screen and (min-width: $breakpoint-medium) {
+					height: 8px;
+				}
+			}
+		}
+	}
+}

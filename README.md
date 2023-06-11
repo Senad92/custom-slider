@@ -39,7 +39,7 @@ git clone https://github.com/Senad92/accessory-slider.git
 - Navigate to the project directory:
 
 ```python
-cd your-project
+cd accessory-slider
 ```
 
 - Install the project dependencies using npm:
@@ -48,16 +48,18 @@ cd your-project
 npm install
 ```
 
-```python
-npm run start
-```
-
 ## Usage
 
 Once the project and its dependencies are installed, you can run it using the following command:
 
 ```python
-gulp
+npm run start
+```
+
+Final thing is to open with your favourite browser this file:
+
+```python
+index.html
 ```
 
 ## License

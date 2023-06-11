@@ -33,7 +33,7 @@ To use this project, follow these steps:
 - Clone the repository to your local machine:
 
 ```python
-git clone https://github.com/Senad92/accessory-slider.git
+git clone https://github.com/Senad92/custom-slider.git
 ```
 
 - Navigate to the project directory:
